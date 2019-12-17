@@ -1,0 +1,69 @@
+
+# Binaries, Archives
+*.7z             binary
+*.bz             binary
+*.bz2            binary
+*.bzip           binary
+*.bzip2          binary
+*.tar            binary
+*.tar.bz2        binary
+*.tar.gz         binary
+*.bz2            binary
+*.gz             binary
+*.gzip           binary
+*.zip            binary
+
+# Binaries, Python
+*.whl            binary
+*.pyc            binary
+
+# mostly Binaries, Java
+*.ear            binary
+*.jar            binary
+*.java           text eol=lf
+*.javac          binary
+*.war            binary
+
+# MS office docs
+*.doc            binary
+*.docx           binary
+*.xls            binary
+*.xlsx           binary
+*.ppt            binary
+*.pptx           binary
+
+# Texts File Types
+*.conf           text eol=lf
+*.gitattributes  text eol=lf
+*.gitignore      text eol=lf
+*.gitlab-ci.yml  text eol=lf
+*.gitlab-ci.yaml text eol=lf
+*.ini            text eol=lf
+*.ipynb          text eol=lf
+*.js             text eol=lf
+*.json           text eol=lf
+*.md             text eol=lf
+*.py             text eol=lf
+*.sh		     text eol=lf
+*.txt            text eol=lf
+*.yaml           text eol=lf
+*.yml            text eol=lf
+*.zsh            text eol=lf
+
+# Texts
+Dockerfile       text eol=lf
+Jenkinsfile      text eol=lf
+LICENSE          text eol=lf
+README.md        text eol=lf
+
+# Image Formats
+*.jpeg		     -text
+*.jpg		     -text
+*.JPEG		     -text
+*.JPG		     -text
+*.png		     -text
+*.PNG		     -text
+
+# Special Formats
+*                text=auto
+*.vcproj	     text eol=crlf

@@ -1,0 +1,14 @@
+
+default:
+  image: docker:dind
+
+stages:
+  - check
+
+run:
+  stage: check
+  only:
+    - master
+  script:
+    - uname -a
+    - date -u

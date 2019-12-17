@@ -1,0 +1,4 @@
+conda env list
+conda activate aws
+conda install -y -c conda-forge cookiecutter
+pip install magenta
