@@ -21,3 +21,11 @@ Pipfile.lock
 
 # versatile
 docker-compose*.yml.bak
+
+# do not git-stage Oracle's proprietary binaries like O/JDBC drivers
+docker/tf-jupyter-py3/srcs/oracle11g/ojdbc-full.tar.gz
+docker/tf-jupyter-py3/srcs/oracle11g/ojdbc5.jar
+docker/tf-jupyter-py3/srcs/oracle11g/ojdbc6.jar
+docker/tf-jupyter-py3/srcs/oracle12c/ojdbc-full.tar.gz
+docker/tf-jupyter-py3/srcs/oracle12c/ojdbc6.jar
+docker/tf-jupyter-py3/srcs/oracle12c/ojdbc7.jar

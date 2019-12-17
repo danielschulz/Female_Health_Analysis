@@ -58,16 +58,8 @@ USER ${ACC_USER_UID}:${ACC_GROUP_GID}
 ARG NOTEBOOK_DIR=/apps/data
 ENV NOTEBOOK_DIR=/apps/data
 
-# CPU vs GPU vs TPU
-ARG COMPUTE_ARCH=CPU
-ARG TF_VERSION="1.13.1"
-# "2.0.0-alpha0"
-ARG TFP_VERSION_PIP="0.6.0"
-ARG TFP_VERSION_CONDA="0.5.0"
-
 ARG TFP_WHEEL_URI="https://files.pythonhosted.org/packages/4e/93/191e42ca27786d6875f74e7b756e34ef42f385f6d250bfc28aa48a1d1072/tensorflow_probability-0.6.0-py2.py3-none-any.whl"
 
-ARG TFDS_VERSION="1.0.1"
 ARG MYSQL_CONNECTOR_VERSION="2.2.9"
 ARG MYSQL_CONNECTOR_C_VERSION="8.0.13"
 
@@ -100,8 +92,11 @@ RUN conda info --envs && \
     conda list -n ds > /apps/tmp/ds-02-$( date -u +%Y%m%d_%H%M ).txt && conda info --envs && conda build purge-all
 
 # env: DS
+ARG TFP_VERSION_PIP="0.8.0"
+ARG TFDS_VERSION="1.2.0"
+
 RUN conda info --envs && \
-    /opt/conda/envs/ds/bin/pip install --user pyfiglet sklearn-pandas pymc && \
+    /opt/conda/envs/ds/bin/pip install --user pyfiglet sklearn-pandas && \
     conda install -q -y -n ds -c conda-forge mkl-service cudatoolkit cudnn h5py && \
     conda install -q -y -n ds -c r r-essentials && \
     conda install -q -y -n ds -c conda-forge fastparquet pyarrow dask python-graphviz pip seaborn bokeh \
@@ -114,11 +109,18 @@ RUN conda info --envs && \
     conda list -n ds > /apps/tmp/ds-03-$( date -u +%Y%m%d_%H%M ).txt && conda info --envs && conda build purge-all
 
 # env: DS
+# CPU vs GPU vs TPU
+ARG COMPUTE_ARCH=CPU
+ARG TF_VERSION="2.0.0"
+# "2.0.0-alpha0"
+
 RUN conda install -q -y -n ds -c anaconda tensorflow=${TF_VERSION} perf protobuf libprotobuf && \
     conda list -n ds > /apps/tmp/ds-04-$( date -u +%Y%m%d_%H%M ).txt && conda info --envs && conda build purge-all
 
 
 # env: DB
+ARG TFP_VERSION_CONDA="0.8.0"
+
 RUN conda info --envs && \
     conda create -n db python=3.6.7 anaconda conda conda-build && \
     conda list -n db > /apps/tmp/db-00-$( date -u +%Y%m%d_%H%M ).txt && conda info --envs && conda build purge-all && \
@@ -154,7 +156,7 @@ RUN conda info --envs && \
     cd ${NOTEBOOK_DIR}
 
 
-ARG TFHUB_VERSION_CONDA="0.4.0"
+ARG TFHUB_VERSION_CONDA="0.7.0"
 
 # env: DS
 RUN conda info --envs && \
