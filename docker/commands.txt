@@ -2,3 +2,10 @@ conda env list
 conda activate aws
 conda install -y -c conda-forge cookiecutter
 pip install magenta
+
+ip install --user pyfiglet sklearn-pandas pym
+pymc
+pip install lightgbm
+!pip install chart-studio
+!pip install plotly
+!pip install cookiecutter
